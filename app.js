@@ -42,10 +42,12 @@ function changeColor(){
 
     for(i = 0; i < main.length; i++){
         main[i].style.backgroundColor = newColor;
+        main[i].style.color = inverted;
     }
 
     for(i = 0; i < flipped.length; i++){
         flipped[i].style.backgroundColor = inverted;
+        flipped[i].style.color = newColor;
     }
 
     
