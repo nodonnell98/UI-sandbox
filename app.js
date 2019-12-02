@@ -81,7 +81,7 @@ function padZero(str, len) {
     return (zeros + str).slice(-len);
 }
 
-const root = document.querySelector('html')
+const root = document.querySelector('#sectionUno')
 
 // Real cursor element
 const cursor = document.createElement('div')
