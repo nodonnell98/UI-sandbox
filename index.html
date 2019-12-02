@@ -5,15 +5,15 @@
   <title>UI Sandbox</title>  
 
   <link rel="stylesheet" href="main.css">
- 
-
+  <link rel="stylesheet" href="shadow.scss">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="flexBox" id="nav">    
-      
-      <a href="#sectionDos" class="navLink">Test1</a>
-      <a class="navLink" href="#sectionUno" id="color">Colour Palette</a>
+  <nav class="flexBox grey" id="nav">    
+    <a class="navLink" href="#sectionUno" id="color">Colour Palette</a>
+      <a href="#sectionDos" class="navLink">Text/Image</a>      
       <a class="navLink ">Test2</a>    
       <a class="spacer"></a>  
   </nav>
@@ -26,7 +26,17 @@
   </div>
 </section>
 <section id="sectionDos">
-
+  <div class="flexBox leftSide half " id="left2">
+    <h1 class='shadow' id="shadowText">
+      HELLO<br>
+      <span style="font-size: 70px; font-family: 'Montserrat', sans-serif; color: rgb(99, 24, 1);;
+      ">WORLD</span>
+    </h1>
+    
+</div>
+<div class="flexBox rightSide half " id="right2">
+    <img id="cat" class="shadow" src="assets/1020.png"></img>
+</div>
 </section>
 
 <script src="app.js"></script>
