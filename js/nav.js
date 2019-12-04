@@ -14,6 +14,7 @@ menu.addEventListener("mouseleave", hideNav);
 function rotate() {
     menu.style.transition = "0.6s";
     menu.style.backgroundColor = navColour;
+   
 
     menuBtn.style.transform = "rotateZ(90deg)";
     menuBtn.style.transition = "0.6s";
@@ -38,6 +39,7 @@ function extendNav() {
 function hideNav() {
     menuContainer.style.display = "none";
     menuContainer.style.transition = "1s";
+
     menuBtn.style.outline = "none";
     menuBtn.style.backgroundColor = "transparent";
     menuBtn.style.transform = "rotateZ(0deg)";
@@ -45,6 +47,7 @@ function hideNav() {
     menuBtn.style.transitionDelay = "0.4s";
 
     menu.style.width = "60px";
+    
     menu.style.backgroundColor = "transparent";
     menu.style.transition = "0.6s";
 
