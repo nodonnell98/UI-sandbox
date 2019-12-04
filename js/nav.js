@@ -22,11 +22,14 @@ function rotate() {
 function extendNav() {
     
     menuContainer.style.display = "flex";    
-    menuContainer.style.transition = "1s";
-    menuContainer.style.transitionDelay = "0.4s";
-    
+    menuContainer.style.transition = "1s"
 
-    menu.style.width = "100%";
+    for(let i = 0; i < menuLinks.length; i++){
+        menuLinks[i].style.display = "inline-flex";
+        menuLinks[i].style.transition = "1s";
+    }
+
+    menu.style.width = "35%";
     menu.style.transition = "1s";
 
     menuBtn.style.outline = "none";
@@ -45,6 +48,10 @@ function hideNav() {
     menu.style.backgroundColor = "transparent";
     menu.style.transition = "0.6s";
 
+    for(let i = 0; i < menuLinks.length; i++){
+        menuLinks[i].style.display = "inline-flex";
+        menuLinks[i].style.transition = "0.3s";
 
+    }
 
 }
