@@ -7,13 +7,20 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="shadow.scss">
 </head>
 
 <body>
 
   <nav class="flexBox grey" id="nav">
-    <img src="assets/dots.png" id="menu">
+    <div id="menu">
+    <img src="assets/dots.png" id="menuBtn" tabindex="1">
+    <div id="menuContainer" class="flexBox">
+      <a href="#sectionUno" class="menuLink">Colour</a>
+      <a href="#sectionDos" class="menuLink">Shadow</a>
+      <a  href="#sectionTres" class="menuLink">TBC</a>
+    </div>
+  </div>
+   
   </nav>
   
   <section id="sectionUno">
@@ -38,11 +45,17 @@
     <img id="cat" class="shadow" src="assets/1020.png"></img>
 </div>
 </section>
-<section id="sectionTres">
-
+<section id="sectionTres" class="flexBox" style="background-color: lightcyan;">
+  <div id="morph">
+    <img src="assets/dots.png">
+  </div>
 </section>
 
 
-<script src="app.js"></script>
+<script src="js/app.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/colour.js"></script>
+<script src="js/shadow.js"></script>
+<script src="js/mouse.js"></script>
 </body>
 </html>
