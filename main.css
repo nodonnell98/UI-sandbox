@@ -6,15 +6,35 @@ body{
 }
 
 #nav{
-    width: 100%;
+    width: auto;
     height: 5%;
     position: fixed;
-    top: 0;
+    top: 2%;
+    left: 2%;
     z-index: 4;
-   
+    cursor: pointer;
     justify-content: start;
     align-items: center;
-    padding-left: 2%;
+    border-radius: 100px;
+   
+}
+
+#menu{
+    transition: 0.3s;
+}
+
+#menu:hover{
+    transform: rotateZ(90deg);
+    transition: 0.6s
+}
+
+#nav:focus{
+    width: 80%;
+    transition: 0.5s;   
+}
+
+.grey:hover{
+    background-color: white;
 }
 
 .grey{
@@ -22,22 +42,9 @@ body{
     transition: 0.3s;
 }
 
-.navLink{
-    display: inline-flex;
-    width: 5%;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    background-color: transparent;
-    color: white;
-    text-decoration: none;
-}
 
 .color3{
-    background-color: greenyellow;
+    background-color: blue;
 }
 
 .spacer{

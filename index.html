@@ -4,19 +4,18 @@
 
   <title>UI Sandbox</title>  
 
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="shadow.scss">
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="shadow.scss">
 </head>
 
 <body>
-  <nav class="flexBox grey" id="nav">    
-    <a class="navLink" href="#sectionUno" id="color">Colour Palette</a>
-      <a href="#sectionDos" class="navLink">Text/Image</a>      
-      <a class="navLink" href="#sectionTres">Test2</a>    
-      <a class="spacer"></a>  
+
+  <nav class="flexBox grey" id="nav">
+    <img src="assets/dots.png" id="menu">
   </nav>
+  
   <section id="sectionUno">
   <div class="flexBox leftSide half main" id="sectionOne">
       <div class="target flipped" id="targetOne"></div>
@@ -25,6 +24,7 @@
       <div class="target main" id="targetTwo"></div>
   </div>
 </section>
+
 <section id="sectionDos">
   <div class="flexBox leftSide half " id="left2">
     <h1 class='shadow' id="shadowText">
@@ -41,6 +41,7 @@
 <section id="sectionTres">
 
 </section>
+
 
 <script src="app.js"></script>
 </body>
