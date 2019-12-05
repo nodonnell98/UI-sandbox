@@ -7,7 +7,10 @@
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/containers.css">
+  <link rel="stylesheet" href="css/sandbox.css">
 </head>
 
 <body>
@@ -16,23 +19,30 @@
     <nav id="menu">
       <img src="assets/dots.png" id="menuBtn" tabindex="1">
       <div id="menuContainer" class="flexBox">
+          <a href="#sandbox" class="menuLink">Sandbox</a>
         <a href="#sectionUno" class="menuLink">Colour</a>
         <a href="#sectionDos" class="menuLink">Shadow</a>
-        <a href="#sectionTres" class="menuLink">TBC</a>
+        
       </div>
     </nav>
 
-  <section id="sectionUno">
-    <div class="flexBox leftSide half main" id="sectionOne">
+    <section id="sandbox" class="flexBox center">
+        <div id="morph">
+          
+        </div>
+      </section>
+
+  <section id="sectionUno" class="flexBox">
+    <div class="flexBox leftSide half main center" id="sectionOne">
       <div class="target flipped" id="targetOne"></div>
     </div>
-    <div class="flexBox rightSide half flipped" id="sectionTwo">
+    <div class="flexBox rightSide half flipped center" id="sectionTwo">
       <div class="target main" id="targetTwo"></div>
     </div>
   </section>
 
-  <section id="sectionDos">
-    <div class="flexBox leftSide half " id="left2">
+  <section id="sectionDos" class="flexBox">
+    <div class="flexBox leftSide half center">
       <h1 class='shadow' id="shadowText">
         HELLO<br>
         <span style="font-size: 70px; font-family: 'Montserrat', sans-serif; color: rgb(99, 24, 1);;
@@ -44,18 +54,15 @@
       <img id="cat" class="shadow" src="assets/1020.png"></img>
     </div>
   </section>
-  <section id="sectionTres" class="flexBox" style="background-color: lightcyan;">
-    <div id="morph">
-      <img src="assets/dots.png">
-    </div>
-  </section>
+  
 
 
   <script src="js/app.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/colour.js"></script>
   <script src="js/shadow.js"></script>
-  <script src="js/mouse.js"></script>
+  <script src="js/bubble.js"></script>
+ 
 </body>
 
 </html>

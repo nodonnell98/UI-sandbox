@@ -1,0 +1,68 @@
+
+
+
+#sectionDos{
+    background-color: lightgray;
+}
+
+
+.target{
+    display: inline-flex;    
+    width: 100px;
+    height: 100px;
+    box-shadow: 5px 10px   #58575750;
+    transition: box-shadow 0.2s, transform 0.4s;   
+}
+
+.target:active{
+    box-shadow: 0px 0px;
+    transform: scale(0.9);
+    transition: box-shadow 0.2s, transform 0.5s;
+    
+}
+
+.target:hover{
+    transform: scale(1.2);
+   
+    transition: transform 0.2s, box-shadow 0.1s;
+
+}
+
+#targetOne{
+    border-radius: 15px;
+    background-color: #FF5959;
+}
+
+#targetTwo{
+    border-radius: 50px;
+    background-color: #39DFE5;
+
+}
+
+
+#sectionOne{
+    background-color: #39DFE5;
+    
+}
+
+#sectionTwo{
+    background-color: #FF5959;
+}
+
+.shadow{
+    text-align: center;
+}
+
+#shadowText{
+    width: auto;
+    font-size: 100px;;
+}
+
+#cat{
+    height: 100%;
+    width: 100%;
+}
+
+
+
+   
