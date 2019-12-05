@@ -28,7 +28,7 @@
 }
 
 #morph:active{
-    transform: scale(0.8);
+    width: 800px
 }
 
 /* #morph::after{    
