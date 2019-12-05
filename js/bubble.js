@@ -1,15 +1,9 @@
 const morph = document.getElementById("morph");
 let morphChild = document.getElementsByClassName("bubble");
-const intervalVar = null;
 
-if(intervalVar == null){
 morph.addEventListener("mouseenter", append2);
-}
+
 morph.addEventListener("mouseleave", clear)
-
-
-
-
 
 
 function getRandom(min, max) {
@@ -18,6 +12,9 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
   }
 
+  function getRandomFloat(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
   function createBubble(){   
 
@@ -28,7 +25,8 @@ function getRandom(min, max) {
      e.style.position = "absolute";
      e.style.top = "100px";
      e.style.backgroundColor = "orangered";
-    e.style.animation = "float " + setSpeed(e.style.width) + "s forwards";
+    e.style.animation = "float " + setSpeed(e.style.width) + "s";
+    e.style.animationDelay = getRandomFloat(0, 4) + "s";
     e.style.borderRadius = "100px";
     e.style.opacity = "0.7";
 
@@ -53,32 +51,31 @@ function getRandom(min, max) {
     return speed
   }
 
-  function interval(){    
-      try {
-        intervalVar = setInterval(append2, 500);    
-      } catch (error) {
-          console.log("attempt made to edit interval")
-      }
-    
-      
-  }
-
 
   function append2(){
   var positionX = 10;    
-  for(let i = 0; i < 4; i++){ 
+  for(let i = 0; i < 6; i++){ 
         let bubble = createBubble();   
         positionX = getRandom(10, 90);
         bubble.style.left = positionX + "%";                
         morph.appendChild(bubble);   
-        bubble.addEventListener("animationend", append2);    
-        bubble.addEventListener("animationend", remove);  
-  }
-    function remove(){
-        this.style.display = "none";
-        morph.removeChild(this);
+        bubble.addEventListener("animationend", shakeUp);    
+          }
+    function shakeUp(){
+      morph.removeChild(this);
+      console.log("shake");
+      let positionX = getRandom(10, 90);
+      this.style.width = getRandom(20, 40);;
+      this.style.height = this.style.width;     
+      this.style.position = "absolute";
+      this.style.top = "100px";
+      this.style.backgroundColor = "orangered";
+      this.style.animation = "float " + window.setSpeed(this.style.width) + "s";
+      this.style.animationDelay = getRandomFloat(0, 2) + "s";
+      this.style.left = positionX + "%";   
+      morph.appendChild(this); 
+       
     }
-   
   }
 
   function clear(){
