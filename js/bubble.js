@@ -1,7 +1,15 @@
 const morph = document.getElementById("morph");
-var intervalVar;
-morph.addEventListener("mouseover", interval);
-morph.addEventListener("mouseleave", remove)
+let morphChild = document.getElementsByClassName("bubble");
+const intervalVar = null;
+
+if(intervalVar == null){
+morph.addEventListener("mouseenter", interval);
+}
+morph.addEventListener("mouseleave", clear)
+
+
+
+
 
 
 function getRandom(min, max) {
@@ -11,45 +19,69 @@ function getRandom(min, max) {
   }
 
 
-  function createBubble(){
+  function createBubble(){   
+
      let e = document.createElement("div");
+     e.setAttribute("class", "bubble");
      e.style.width = getRandom(20, 40);;
-     e.style.height = e.style.width;
+     e.style.height = e.style.width;     
      e.style.position = "absolute";
      e.style.top = "100px";
      e.style.backgroundColor = "orangered";
-    e.style.animation = "float " + getRandom(2, 4) + "s";
+    e.style.animation = "float " + setSpeed(e.style.width) + "s forwards";
     e.style.borderRadius = "100px";
     e.style.opacity = "0.7";
 
     return e;
   }
 
-  function append(){    
-      var positionX = 10;
-    for(let i = 0; i < 4; i++){   
-        let bubble = createBubble();   
-        positionX += getRandom(40, 90);
-        bubble.style.left = positionX + "px";        
-        morph.appendChild(bubble);
-    }    
+  function setSpeed(size){
+      let speed = 1;
+    if (size < 25){
+        speed = 2;
+     }
+     else if(size >= 25 && size < 30){
+         speed = 3;
+     }
+     else if(size >= 30 && size < 35){
+        speed = 4;
+    }
+    else{
+        speed = 5;
+    }
+
+    return speed
   }
 
-  function interval(){
-    intervalVar = setInterval(append2, 2000);
+  function interval(){    
+      try {
+        intervalVar = setInterval(append2, 500);    
+      } catch (error) {
+          console.log("attempt made to edit interval")
+      }
+    
+      
   }
+
 
   function append2(){
-  var positionX = 10;
-    for(let i = 0; i < 6; i++){   
+  var positionX = 10;      
         let bubble = createBubble();   
-        positionX = getRandom(40, 490);
-        bubble.style.left = positionX + "px";        
-        morph.appendChild(bubble);
-    }    
+        positionX = getRandom(10, 90);
+        bubble.style.left = positionX + "%";                
+        morph.appendChild(bubble);   
+        bubble.addEventListener("animationend", remove);    
+    function remove(){
+      //  this.style.display = "none";
+        morph.removeChild(this);
+    }
+   
   }
 
-  function remove(){
+  function clear(){
       morph.innerHTML = "";
+      morph.childNodes.forEach(element => morph.removeChild(element));
       clearInterval(intervalVar);
+      
+      console.log(intervalVar);
   }

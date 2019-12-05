@@ -16,12 +16,19 @@
     position: relative;      
     transition: 0.3s;
     overflow: hidden;
+    
 }
 
 #morph:hover{
     transform: scale(1.05);
     transition: 0.6s;
     cursor: pointer;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.377);
+    transition: 0.5s;
+}
+
+#morph:active{
+    transform: scale(0.8);
 }
 
 /* #morph::after{    
@@ -48,8 +55,14 @@
 
      transform: translateY(0px);
  }
+ 99%{
+     transform: translateY(-150px);
+     display: contents;
+ }
  100%{
-    transform: translateY(-150px);
+    transform: translateY(-151px);
+    display: none;
+    
  }
   }
 
