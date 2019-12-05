@@ -3,7 +3,7 @@ let morphChild = document.getElementsByClassName("bubble");
 const intervalVar = null;
 
 if(intervalVar == null){
-morph.addEventListener("mouseenter", interval);
+morph.addEventListener("mouseenter", append2);
 }
 morph.addEventListener("mouseleave", clear)
 
@@ -65,14 +65,17 @@ function getRandom(min, max) {
 
 
   function append2(){
-  var positionX = 10;      
+  var positionX = 10;    
+  for(let i = 0; i < 4; i++){ 
         let bubble = createBubble();   
         positionX = getRandom(10, 90);
         bubble.style.left = positionX + "%";                
         morph.appendChild(bubble);   
-        bubble.addEventListener("animationend", remove);    
+        bubble.addEventListener("animationend", append2);    
+        bubble.addEventListener("animationend", remove);  
+  }
     function remove(){
-      //  this.style.display = "none";
+        this.style.display = "none";
         morph.removeChild(this);
     }
    
