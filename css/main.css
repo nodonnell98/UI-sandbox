@@ -23,7 +23,7 @@
 
 .target:hover{
     transform: scale(1.2);
-   
+   cursor: pointer;
     transition: transform 0.2s, box-shadow 0.1s;
 
 }
