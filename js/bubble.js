@@ -1,6 +1,11 @@
-const morph = document.getElementById("morph");
 
+const bubbleGroup = document.getElementsByClassName('bubble');
 var bubbleTarget = null;
+let bubbleColour = null;
+
+//----Get target function-----//
+//This funtion gets the target themouse is hovering over, and if it ahs the class bubble then it sets 
+// bubble target as that element.
 
 function handler(ev) {
   var target = $(ev.target);
@@ -8,19 +13,20 @@ function handler(ev) {
   if( target.is(".bubble") ) {
      console.log(elId);
     bubbleTarget = document.getElementById(elId);
+    bubbleColour = setColour(elId);
+    console.log(bubbleColour);
   }
   }
   $(".bubble").mouseenter(handler);
 
-const bubbleGroup = document.getElementsByClassName('bubble');
+
 
 for(let i = 0; i < bubbleGroup.length; i++){
   bubbleGroup[i].addEventListener("mouseenter", append);
   bubbleGroup[i].addEventListener("mouseleave", clear);
 }
 
-//morph.addEventListener("mouseenter", append);
-//morph.addEventListener("mouseleave", clear)
+//These funcitons randomly generate a float or int respectivley
 
 function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
@@ -31,6 +37,8 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
+
+//This function appends bubbles to the bubble target
 
 function append() {
   var positionX = 10;
@@ -43,6 +51,8 @@ function append() {
   }  
 }
 
+//This creates a bubble with set parameters.
+
 function createBubble() {  
   let e = document.createElement("div");
   e.setAttribute("class", "bubble");
@@ -50,7 +60,7 @@ function createBubble() {
   e.style.height = e.style.width;
   e.style.position = "absolute";
   e.style.top = "100px";
-  e.style.backgroundColor = "rgb(217, " + getRandomInt(188, 120)+ ", 46)";
+  e.style.backgroundColor = bubbleColour;
   e.style.animation = "float " + setSpeed(e.style.width) + "s linear";
   e.style.animationDelay = getRandomFloat(0, 4) + "s";
   e.style.borderRadius = "100px";
@@ -63,7 +73,7 @@ function shakeUp() {
   bubbleTarget.removeChild(this);  
   this.style.width = getRandomInt(20, 40);
   this.style.height = this.style.width;
-  this.style.backgroundColor = "rgb(217, " + getRandomInt(188, 120)+ ", 46)";;
+  this.style.backgroundColor = bubbleColour;
   this.style.position = "absolute";  
   this.style.animationDuration = setSpeed(this.style.width) + "s";
   this.style.animationDelay = getRandomFloat(0, 2) + "s";
@@ -91,4 +101,24 @@ function clear() {
   bubbleTarget.childNodes.forEach(element => bubbleTarget.removeChild(element));
   bubbleTarget = null;
 }
+
+function setColour(id){
+  let id0 = "#" + id;
+    console.log($(id0).css( "background-color" ))
+    var rgb = $(id0).css( "background-color" );
+
+rgb = rgb.substring(4, rgb.length-1)
+         .replace(/ /g, '')
+         .split(',');
+
+         let newR = 255 - parseInt(rgb[0]);
+         let newG= 255 - parseInt(rgb[1]);
+         let newB = 255 - parseInt(rgb[2]);
+
+         let newColour = "rgb( " + newR + ", " + newG + ", " + newB + " )";
+
+         return newColour;
+}
+
+
 
