@@ -60,7 +60,8 @@ function createBubble() {
   e.style.height = e.style.width;
   e.style.position = "absolute";
   e.style.top = "100px";
-  e.style.backgroundColor = bubbleColour;
+
+  e.style.backgroundColor = "rgb( " + (bubbleColour[0] +  getRandomInt(0, 30))+ ", " + (bubbleColour[1] + getRandomInt(0, 30))+ ", " + (bubbleColour[2] + getRandomInt(0,30))+ " )";
   e.style.animation = "float " + setSpeed(e.style.width) + "s linear";
   e.style.animationDelay = getRandomFloat(0, 4) + "s";
   e.style.borderRadius = "100px";
@@ -73,7 +74,8 @@ function shakeUp() {
   bubbleTarget.removeChild(this);  
   this.style.width = getRandomInt(20, 40);
   this.style.height = this.style.width;
-  this.style.backgroundColor = bubbleColour;
+
+  this.style.backgroundColor = "rgb( " + (bubbleColour[0] +  getRandomInt(0, 30))+ ", " + (bubbleColour[1] + getRandomInt(0, 30))+ ", " + (bubbleColour[2] + getRandomInt(0,30))+ " )";
   this.style.position = "absolute";  
   this.style.animationDuration = setSpeed(this.style.width) + "s";
   this.style.animationDelay = getRandomFloat(0, 2) + "s";
@@ -115,9 +117,13 @@ rgb = rgb.substring(4, rgb.length-1)
          let newG= 255 - parseInt(rgb[1]);
          let newB = 255 - parseInt(rgb[2]);
 
-         let newColour = "rgb( " + newR + ", " + newG + ", " + newB + " )";
+         rgb[0] = newR;
+         rgb[1] = newG;
+         rgb[2] = newB;
 
-         return newColour;
+       
+
+         return rgb;
 }
 
 
