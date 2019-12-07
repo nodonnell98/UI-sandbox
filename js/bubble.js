@@ -88,6 +88,7 @@ function setSpeed(sizeInit) {
 
 function clear() {
   bubbleTarget.innerHTML = "";
-  bubbleTarget.childNodes.forEach(element => morph.removeChild(element));
+  bubbleTarget.childNodes.forEach(element => bubbleTarget.removeChild(element));
+  bubbleTarget = null;
 }
 
