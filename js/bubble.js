@@ -1,7 +1,26 @@
 const morph = document.getElementById("morph");
 
-morph.addEventListener("mouseenter", append);
-morph.addEventListener("mouseleave", clear)
+var bubbleTarget = null;
+
+function handler(ev) {
+  var target = $(ev.target);
+  var elId = target.attr('id');
+  if( target.is(".bubble") ) {
+     console.log(elId);
+    bubbleTarget = document.getElementById(elId);
+  }
+  }
+  $(".bubble").mouseenter(handler);
+
+const bubbleGroup = document.getElementsByClassName('bubble');
+
+for(let i = 0; i < bubbleGroup.length; i++){
+  bubbleGroup[i].addEventListener("mouseenter", append);
+  bubbleGroup[i].addEventListener("mouseleave", clear);
+}
+
+//morph.addEventListener("mouseenter", append);
+//morph.addEventListener("mouseleave", clear)
 
 function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
@@ -19,7 +38,7 @@ function append() {
     let bubble = createBubble();
     positionX = getRandomFloat(10, 90);
     bubble.style.left = positionX + "%";
-    morph.appendChild(bubble);
+    bubbleTarget.appendChild(bubble);
     bubble.addEventListener("animationend", shakeUp);
   }  
 }
@@ -41,7 +60,7 @@ function createBubble() {
 }
 
 function shakeUp() {
-  morph.removeChild(this);  
+  bubbleTarget.removeChild(this);  
   this.style.width = getRandomInt(20, 40);
   this.style.height = this.style.width;
   this.style.backgroundColor = "rgb(217, " + getRandomInt(188, 120)+ ", 46)";;
@@ -49,7 +68,7 @@ function shakeUp() {
   this.style.animationDuration = setSpeed(this.style.width) + "s";
   this.style.animationDelay = getRandomFloat(0, 2) + "s";
   this.style.left = getRandomFloat(10, 90) + "%";
-  morph.appendChild(this);
+  bubbleTarget.appendChild(this);
 }
 
 function setSpeed(sizeInit) {
@@ -68,6 +87,7 @@ function setSpeed(sizeInit) {
 }
 
 function clear() {
-  morph.innerHTML = "";
-  morph.childNodes.forEach(element => morph.removeChild(element));
+  bubbleTarget.innerHTML = "";
+  bubbleTarget.childNodes.forEach(element => morph.removeChild(element));
 }
+

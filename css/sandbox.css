@@ -15,7 +15,7 @@
     transition: 0.3s;
     position: relative;      
     transition: 0.3s;
-    overflow: hidden;
+    
     
 }
 
@@ -37,21 +37,7 @@
 
 
 
-@keyframes float {
- 0%{
 
-     transform: translateY(0px);
- }
- 99%{
-     transform: translateY(-150px);
-     display: contents;
- }
- 100%{
-    transform: translateY(-151px);
-    display: none;
-    
- }
-  }
 
   @keyframes badoing{
       0%{

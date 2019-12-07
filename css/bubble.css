@@ -1,0 +1,21 @@
+
+.bubble{
+    overflow: hidden;
+}
+
+
+@keyframes float {
+    0%{
+   
+        bottom: -50px;
+    }
+    99%{
+        top: -50px;
+        display: contents;
+    }
+    100%{
+       top: -50px;
+       display: none;
+       
+    }
+     }
