@@ -2,6 +2,10 @@
 const bubbleGroup = document.getElementsByClassName('bubble');
 var bubbleTarget = null;
 let bubbleColour = null;
+let targetHeight;
+let targetWidth;
+let maxSize;
+let minSize;
 
 //----Get target function-----//
 //This funtion gets the target themouse is hovering over, and if it ahs the class bubble then it sets 
@@ -11,10 +15,14 @@ function handler(ev) {
   var target = $(ev.target);
   var elId = target.attr('id');
   if( target.is(".bubble") ) {
-     console.log(elId);
+     
     bubbleTarget = document.getElementById(elId);
-    bubbleColour = setColour(elId);
-    console.log(bubbleColour);
+    let id = "#" + elId;
+    bubbleColour = setColour(id);
+    targetHeight = $(id).css("height");
+    targetWidth = $(id).css("width");
+    setSize();
+    console.log(targetHeight, targetWidth);
   }
   }
   $(".bubble").mouseenter(handler);
@@ -56,12 +64,12 @@ function append() {
 function createBubble() {  
   let e = document.createElement("div");
   e.setAttribute("class", "bubble");
-  e.style.width = getRandomInt(20, 40);;
+  e.style.width = getRandomInt(minSize, maxSize);;
   e.style.height = e.style.width;
   e.style.position = "absolute";
-  e.style.top = "100px";
+  e.style.top = (parseInt(targetHeight, 10) + 50);
 
-  e.style.backgroundColor = "rgb( " + (bubbleColour[0] +  getRandomInt(0, 30))+ ", " + (bubbleColour[1] + getRandomInt(0, 30))+ ", " + (bubbleColour[2] + getRandomInt(0,30))+ " )";
+  e.style.backgroundColor = "rgb( " + (bubbleColour[0] +  getRandomInt(0, 50))+ ", " + (bubbleColour[1] + getRandomInt(0, 50))+ ", " + (bubbleColour[2] + getRandomInt(0,50))+ " )";
   e.style.animation = "float " + setSpeed(e.style.width) + "s linear";
   e.style.animationDelay = getRandomFloat(0, 4) + "s";
   e.style.borderRadius = "100px";
@@ -72,10 +80,10 @@ function createBubble() {
 
 function shakeUp() {
   bubbleTarget.removeChild(this);  
-  this.style.width = getRandomInt(20, 40);
+  this.style.width = getRandomInt(minSize, maxSize);
   this.style.height = this.style.width;
 
-  this.style.backgroundColor = "rgb( " + (bubbleColour[0] +  getRandomInt(0, 30))+ ", " + (bubbleColour[1] + getRandomInt(0, 30))+ ", " + (bubbleColour[2] + getRandomInt(0,30))+ " )";
+  this.style.backgroundColor = "rgb( " + (bubbleColour[0] +  getRandomInt(0, 50))+ ", " + (bubbleColour[1] + getRandomInt(0, 50))+ ", " + (bubbleColour[2] + getRandomInt(0,50))+ " )";
   this.style.position = "absolute";  
   this.style.animationDuration = setSpeed(this.style.width) + "s";
   this.style.animationDelay = getRandomFloat(0, 2) + "s";
@@ -83,17 +91,34 @@ function shakeUp() {
   bubbleTarget.appendChild(this);
 }
 
+function setSize(){
+  maxSize = parseInt(targetWidth, 10) * 0.12;
+  minSize = parseInt(targetWidth,10) * 0.07;
+}
+
 function setSpeed(sizeInit) {
-  
+let diff = maxSize - minSize;
+let increment = diff / 4;
+let small = minSize + increment;
+let medium = minSize + (increment*2);
+let large = minSize + (increment*3);
+
+let speedDiff = parseInt(targetHeight,10)/100;
+console.log(speedDiff)
+let xslow = (speedDiff*2) + 0.5;
+let slow = speedDiff*3;
+let fast = speedDiff*4;
+let xfast = speedDiff*5
+
   let size = parseInt(sizeInit, 10)
-  if (size < 25) {
-    speed = 2;
-  } else if (size >= 25 && size < 30) {
-    speed = 3;
-  } else if (size >= 30 && size < 35) {
-    speed = 4;
+  if (size < small) {
+    speed = xslow;
+  } else if (size >= small && size < medium) {
+    speed = slow;
+  } else if (size >= medium && size < large) {
+    speed = fast;
   } else {
-    speed = 5;
+    speed = xfast;
   }
   return speed
 }
@@ -105,9 +130,9 @@ function clear() {
 }
 
 function setColour(id){
-  let id0 = "#" + id;
-    console.log($(id0).css( "background-color" ))
-    var rgb = $(id0).css( "background-color" );
+  
+    
+    var rgb = $(id).css( "background-color" );
 
 rgb = rgb.substring(4, rgb.length-1)
          .replace(/ /g, '')
