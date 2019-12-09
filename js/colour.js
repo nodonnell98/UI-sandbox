@@ -11,16 +11,7 @@ var inverted;
 targetOne.addEventListener("click", changeColor);
 targetTwo.addEventListener("click", changeColor);
 
-for (i = 0; i < main.length; i++) {
-    main[i].addEventListener("mouseover", changeMouse);
 
-  /*  function changeMouse() {
-        var pointer = document.getElementById("mouse");
-        pointer.style.backgroundColor = inverted;
-
-
-    }*/
-}
 
 for (i = 0; i < flipped.length; i++) {
     flipped[i].addEventListener("mouseover", changeMouse2);

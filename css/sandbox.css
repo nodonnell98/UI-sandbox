@@ -1,7 +1,8 @@
 
 #sandbox{
     background-color: #e09d91;
-    
+    flex-direction: column;
+    justify-content: space-evenly;
     
 }
 
@@ -36,6 +37,16 @@
 }
 
 
+#heal{
+    position: relative;
+    background-color: white;
+    border: 5px solid gold;
+    border-radius: 10px;
+    width: 200px;
+    height: 100px;
+    transition: 0.3s;
+}
+
 
 
 
@@ -53,6 +64,7 @@
           transform: scale(1.05);
       }
   }
+
 
 
 

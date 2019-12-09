@@ -1,6 +1,13 @@
 
 .bubble{
     overflow: hidden;
+    cursor: pointer;
+   transition: 0.3s;
+}
+
+.bubble:hover{
+    transform: scale(1.0);
+    transition: 0.6s;
 }
 
 

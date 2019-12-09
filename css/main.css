@@ -29,8 +29,8 @@
 }
 
 #targetOne{
-    width: 80%;
-    height: 60%;
+    width: 100px;
+    height: 100px;
     border-radius: 15px;
     background-color: #FF5959;
 }
