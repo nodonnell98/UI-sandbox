@@ -62,7 +62,7 @@ function createBubble() {
   e.style.top = (parseInt(targetHeight, 10) + 15);
   e.style.zIndex = -1;
   try{
-  e.style.backgroundColor = "gold"/*"rgb( " + (bubbleColour[0] + getRandomInt(0, 50)) + ", " + (bubbleColour[1] + getRandomInt(0, 50)) + ", " + (bubbleColour[2] + getRandomInt(0, 50)) + " )";*/
+  e.style.backgroundColor = "rgb( " + (bubbleColour[0] + getRandomInt(0, 50)) + ", " + (bubbleColour[1] + getRandomInt(0, 50)) + ", " + (bubbleColour[2] + getRandomInt(0, 50)) + " )";
   }
   catch{
     e.style.backgroundColor = "black";
@@ -81,7 +81,7 @@ function shakeUp() {
   bubbleTarget.removeChild(this);
   this.style.width = getRandomInt(minSize, maxSize);
   this.style.height = this.style.width;
-  this.style.backgroundColor = "gold" /*"rgb( " + (bubbleColour[0] + getRandomInt(0, 50)) + ", " + (bubbleColour[1] + getRandomInt(0, 50)) + ", " + (bubbleColour[2] + getRandomInt(0, 50)) + " )";*/
+  this.style.backgroundColor = "rgb( " + (bubbleColour[0] + getRandomInt(0, 50)) + ", " + (bubbleColour[1] + getRandomInt(0, 50)) + ", " + (bubbleColour[2] + getRandomInt(0, 50)) + " )";
   this.style.position = "absolute";
   this.style.animationDuration = setSpeed(this.style.width) + "s";
   this.style.animationDelay = getRandomFloat(0, 2) + "s";
